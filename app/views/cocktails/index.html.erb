@@ -1,14 +1,15 @@
-<div class="navbar-wagon">
-  <h1>Funky Cocktails</h1>
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <%= link_to "Add new cocktail", new_cocktail_path, class:"btn btn-success"%>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(168, 36, 0, 0.6) 0%, rgba(188, 115, 32, 0.6) 50%), url('https://www.mailexperiences.co.uk/content/img/product/large/royal-cocktails-with-sharing-18100237.jpg');">
+  <div class="banner-content">
+    <h1>Funky Cocktails</h1>
+    <p><span id="banner-typed-text"></span></p>
+    <%= link_to "Add new cocktail", new_cocktail_path, class:"btn btn-warning"%>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
     <% @cocktails.each do |cocktail| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cocktail.image %>);">
             <div class="card-category"><%= link_to "#{cocktail.name}", cocktail_path(cocktail.id)%></div>
           </div>
@@ -16,7 +17,3 @@
       <% end %>
     </div>
   </div>
-
-
-
-
