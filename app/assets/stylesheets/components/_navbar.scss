@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 /* Logo */
@@ -59,10 +60,12 @@
   line-height: 22px !important;
   padding: 10px 20px;
 }
+
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
   color: black !important;
 }
+
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
   height: 10px;
@@ -74,4 +77,5 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+
 }
