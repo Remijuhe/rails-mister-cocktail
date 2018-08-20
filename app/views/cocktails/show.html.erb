@@ -1,26 +1,28 @@
-
-
 <header>
   <h2><%= @cocktail.name %></h2>
-    <ul>
-      <% @doses.each do |dose| %>
-      <li><%= dose.description %>:<%= dose.ingredient.name %><%=  link_to "Delete dose", dose_path(dose), method: :delete, data: {confirm: "Are you sure?"} %></li>
-      <% end %>
-    </ul>
   <div class="add-button">
-    <div class="sub-button tl"><i class="far fa-comments"></i></div>
-    <div class="sub-button tr"><i class="fas fa-arrow-circle-left"></i></div>
-    <div class="sub-button bl"><i class="far fa-plus-square"></i></div>
+    <%= link_to new_cocktail_dose_path(@cocktail) do %>
+      <div class="sub-button tl"><i class="far fa-plus-square"></i></div>
+    <% end %>
+    <%= link_to cocktails_path do %>
+      <div class="sub-button tr"><i class="fas fa-arrow-circle-left"></i></div>
+    <% end %>
+    <div class="sub-button bl"></div>
     <div class="sub-button br"></div>
   </div>
 </header>
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(168, 36, 0, 0.6) 0%, rgba(188, 115, 32, 0.6) 50%), url('<%= cl_image_path @cocktail.image %>');">
-  <div class="banner-content">
+<div class="banner-cocktail" style="background-image: linear-gradient(-225deg, rgba(168, 36, 0, 0.6) 0%, rgba(188, 115, 32, 0.6) 50%), url('<%= cl_image_path @cocktail.image %>');">
+  <div class="banner-content-cocktail">
     <div class="cocktail-card">
+        <h3><%= @cocktail.name %>'s ingredients</h3>
+        <ul>
+        <% @doses.each do |dose| %>
+          <li><%= dose.ingredient.name %> : <%= dose.description %>   <%=  link_to "", dose_path(dose), method: :delete, data: {confirm: "Are you sure?"}, class:"fas fa-minus-square" %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+  </div>
+</div>
 
-    </div>
-</div>
-</div>
-<%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %>
-<%= link_to "Back to cocktails", cocktails_path, class:"btn btn-primary"%>
